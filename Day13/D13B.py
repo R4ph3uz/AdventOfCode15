@@ -28,7 +28,6 @@ for Guest in MyGuests:
     Guests['Me'][Guest] = 0
     Guests[Guest]["Me"] = 0
 
-print(Guests)
 MyGuests = list(Guests.keys())
 
 Permutations = list(itertools.permutations(MyGuests))
