@@ -1,21 +1,25 @@
 StartNumber = input("Please enter your starting number:  ")
 CurrentNumber = StartNumber
 
-for x in range (10):
-    Length = len(CurrentNumber)
+#Controls the number of times you repeat
+for x in range (50):
+    Length = len(CurrentNumber) 
     NewNumber = ""
     i = 0
     while True:
-        for j in range (i, Length):
-            if CurrentNumber[i] != CurrentNumber[j]:        
+        Consecutive = 0
+        j = i
+        while True:
+            if CurrentNumber[i] == CurrentNumber[j]:
+                Consecutive += 1
+            else:
                 break
-#        if j == 0:
-        NewNumber = NewNumber + str(j + 1) + CurrentNumber[i]
-#        else:
-#            NewNumber = NewNumber + str(j) + CurrentNumber[i]
-        i += max(1, j)
-        if i >= Length - 1:
+            j += 1
+            if j >= Length:
+                break
+        NewNumber = NewNumber + str(Consecutive) + str(CurrentNumber[i])
+        if j >= Length:
             break
-
+        i = j
     CurrentNumber = NewNumber
-    print(CurrentNumber)
+    print(len(CurrentNumber))
